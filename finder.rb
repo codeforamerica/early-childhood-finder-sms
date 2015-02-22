@@ -10,7 +10,6 @@ require "./env" if File.exists?('env.rb')
 $twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_AUTH_TOKEN"]
 NO_ADDRESS_FOUND = "We're sorry, we didn't recognize that as a Somerville address."
 WELCOME = "Hello! Text me an address in Somerville and I'll send you nearby early child care locations. Example: '93 Highland Ave'. Text 'hello' to start over again."
-HELP = "Text the word 'hello' to start over again."
 
 post '/finder' do
   
@@ -20,12 +19,8 @@ post '/finder' do
     from_phone    = params["From"]
     session["step"] ||= "hello"
 
-    case message_body.downcase
-    when "hello"
+    if message_body.downcase == "hello"
       session["step"] = "hello"
-    when "help"
-      Response.new.send_text(from_phone, HELP)
-      return
     end
 
     case session["step"]
