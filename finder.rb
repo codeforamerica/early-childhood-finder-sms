@@ -20,6 +20,10 @@ post '/finder' do
     message_body  = params["Body"]
     from_phone    = params["From"]
 
+    if message_body.downcase == "hello"
+      session["step"] = "hello"
+    end
+
     case session["step"]
     when "hello"
       Response.new.send_text(from_phone, WELCOME)
