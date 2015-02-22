@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'shotgun'
+gem 'pg'
+gem 'sinatra-activerecord'
+gem 'geocoder'
+gem 'twilio-ruby'
+gem 'rake'
+gem 'rspec'
