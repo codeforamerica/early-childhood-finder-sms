@@ -35,7 +35,10 @@ class Response
     results_hash = {}
     n = 1
     centers.each do |c|
-      results_hash[n] = "#{c.name} #{c.phone} #{c.address} #{c.email}"
+      center_string = "#{c.name}. Phone: #{c.phone}. Address: #{c.address}."
+      center_string += " Email: #{c.email}." if c.email.present?
+      results_hash[n] = center_string
+      n += 1 
     end
     return results_hash
   end
