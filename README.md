@@ -52,6 +52,10 @@ Demoed Sunday afternoon,
 What does Monday hold?
 ```
 
+# How can I try it out? 
+
+As of CodeAcross weekend (Feb 21-22 2015) you can text "hello" (or any other word really) to 617-206-1937.
+
 # Related projects
 
 * Somerville:
