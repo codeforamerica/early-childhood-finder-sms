@@ -9,19 +9,23 @@ require "./env" if File.exists?('env.rb')
 
 $twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_AUTH_TOKEN"]
 NO_ADDRESS_FOUND = "We're sorry, we didn't recognize that as a Somerville address."
-WELCOME = "Hello! Text me an address in Somerville and I'll send you nearby early child care locations. Example: '93 Highland Ave'"
+WELCOME = "Hello! Text me an address in Somerville and I'll send you nearby early child care locations. Example: '93 Highland Ave'. Text 'hello' to start over again."
+HELP = "Text the word 'hello' to start over again."
 
 post '/finder' do
-
-  session["step"] ||= "hello"
   
   if params["Body"].present? && params["From"].present?
 
     message_body  = params["Body"]
     from_phone    = params["From"]
+    session["step"] ||= "hello"
 
-    if message_body.downcase == "hello"
+    case message_body.downcase
+    when "hello"
       session["step"] = "hello"
+    when "help"
+      Response.new.send_text(from_phone, HELP)
+      return
     end
 
     case session["step"]
@@ -37,18 +41,18 @@ post '/finder' do
         @details  = @results["details"]
         session["details"] = @details
         if @sms_response.send_text(from_phone, @list)
-          session["step"] = "results-sent"
+          session["step"] = "detail"
         end
       else 
         @sms_response.send_text(from_phone, NO_ADDRESS_FOUND)
       end
-    when "results-sent", "detail-sent"
+    when "detail"
       requested_detail = message_body.to_i
       @detail = session["details"][requested_detail]
       if @detail.present?
         @sms_response = Response.new
         if @sms_response.send_text(from_phone, @detail)
-          session["step"] = "detail-sent"
+          session["step"] = "detail"
         end
       end
     end
