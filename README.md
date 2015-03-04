@@ -1,6 +1,10 @@
 # What is this? 
 This is an SMS interface for finding child care centers in Somerville, MA. Its purpose is to enhance the [Somerville Early Childhood Hub](http://somervillehub.org/), a place to find resources for young children & their families in Somerville. 
 
+Here's what the app looks like in action:
+
+![SMS interface: "Hello! Text me an address in Somerville and I'll send you nearby early child care locations. Example: '93 Highland Ave'."](/public/sms.png)
+
 We heard from the wonderful staff behind the Hub that they have often talked about making childcare locations available via SMS, but didn't know how to make that happen. We built this for them during [CodeAcross 2015](http://www.meetup.com/Code-for-Boston/events/219132652/).
 
 # What inspired this? 
