@@ -13,7 +13,7 @@ This app is essentially a Ruby implementation of the [Chicago Early Learning Por
 Looking at [mRelief](https://github.com/sariyie/mRelief), a Chicago-based SMS intake form, was very helpful in figuring out how to structure the Twilio-related code. Thank you [Genevieve Nielsen](https://github.com/genevievenielsen) and [Rose Afriyie](https://github.com/sariyie/)! 
 
 # Where's the data from?
-The initial data behind the map comes from Code for Boston, specifically the [child-care-finder-data](https://github.com/codeforboston/child-care-finder-data) & [child-care-finder](https://github.com/codeforboston/child-care-finder) repos. Code for Boston in turn got the data from the the Mass. Dept. of Early Education & Care (see ![codeforboston/child-care-finder#2](https://github.com/codeforboston/child-care-finder/issues/2#issuecomment-75475746)).
+The initial data behind the map comes from Code for Boston, specifically the [child-care-finder-data](https://github.com/codeforboston/child-care-finder-data) & [child-care-finder](https://github.com/codeforboston/child-care-finder) repos. Code for Boston in turn got the data from the the Mass. Dept. of Early Education & Care (see [codeforboston/child-care-finder#2](https://github.com/codeforboston/child-care-finder/issues/2#issuecomment-75475746)).
 
 # What's the tech? 
 This is a Sinatra app backed by Twilio.
